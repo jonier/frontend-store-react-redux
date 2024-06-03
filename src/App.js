@@ -11,7 +11,7 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const getUser = () => {
+    const getUser = async () => {
       //http://localhost:3000/api/v1/users/2
       // fetch('https://jsonplaceholder.typicode.com/users/2', {
       //   method: "GET",
@@ -20,11 +20,19 @@ function App() {
       //   .then((response) => response)
       //   .then((data) => dispatch(addUser(data)))
       //   .catch((error) => console.log(error))
+
+      const response = await fetch('http://localhost:3000/api/v1/users')
+      //Return an object {}
+      const resUser = await response.json()
+      const user = resUser.data
+      console.log('Vea pues user: Response ', response.status)
+      console.log('Vea pues user: user ', resUser)
+
       dispatch(addUser({
-        email: 'jonier@gmail.com',
-        userName: 'jonier',
-        firstName: 'Isablle',
-        lastName: 'Murillo'
+        email: user.email,
+        userName: user.userName,
+        firstName: user.firstName,
+        lastName: user.lastName
       }))
     }
     getUser()
@@ -33,6 +41,7 @@ function App() {
       getUser()
     }
   }, [dispatch])
+
 
   return (
     <ThemeProvider theme={theme}>

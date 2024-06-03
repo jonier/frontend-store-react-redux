@@ -5,6 +5,9 @@ const Header = () => {
 
     const user = useSelector((state) => state.user)
 
+
+    //await new Promise((resolve) => setTimeout(resolve, 3000));
+
     return (
         <div>
             <header>
@@ -12,7 +15,7 @@ const Header = () => {
                     <li>Name: {user.firstName}</li>
                     <li>Name: {user.lastName}</li>
                     <li>Email: {user.email}</li>
-                    <li>Username: {user.userName}</li>
+                    <li>Username1: {user.userName}</li>
                 </ul>
             </header>
         </div>

@@ -19,7 +19,7 @@ function App() {
       // })
       //   .then((response) => response)
       //   .then((data) => dispatch(addUser(data)))
-      //   .catch((error) => console.log(error))
+      //   .catch((error) => console.log(error)) JONIER
 
       const response = await fetch('http://localhost:3000/api/v1/users')
       //Return an object {}
